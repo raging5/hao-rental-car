@@ -1,80 +1,163 @@
-.container {
-    max-width: 900px;
-    margin: 60px auto;
-    padding: 0 20px;
+/* --- 品牌色系與變數 --- */
+:root {
+    --primary: #1a3c5a;    /* 質感深藍 */
+    --accent: #d32f2f;     /* 磚瓦紅 */
+    --gold: #f39c12;       /* 金黃色 */
+    --bg-light: #f4f7f6;   /* 背景淡灰 */
+    --white: #ffffff;
+    --text-main: #333;
+    --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+    --shadow-lg: 0 10px 30px rgba(0,0,0,0.1);
+    --radius: 12px;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.faq-section {
-    margin-bottom: 40px;
+/* --- 基礎設定 --- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+    color: var(--text-main);
+    background-color: var(--bg-light);
+    line-height: 1.6;
 }
 
-.faq-category {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 20px;
-    color: #007bff;
+/* --- 導覽列 (Navbar) 深度優化 --- */
+header {
+    background: var(--white);
+    box-shadow: var(--shadow-sm);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-.faq-category i { font-size: 1.5rem; }
-.faq-category h2 { font-size: 1.3rem; color: #333; }
-
-.faq-group {
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    overflow: hidden;
-}
-
-.faq-item {
-    border-bottom: 1px solid #eee;
-}
-
-.faq-item:last-child { border-bottom: none; }
-
-.faq-question {
-    padding: 20px 25px;
-    cursor: pointer;
+.navbar {
+    max-width: 1400px; /* 寬一點以容納多選單 */
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-weight: 600;
-    color: #444;
-    transition: background 0.3s;
+    padding: 0 30px;
+    height: 80px;
 }
 
-.faq-question:hover { background: #f8fbff; }
+.logo img { height: 50px; transition: var(--transition); }
 
-.faq-question i {
-    font-size: 0.8rem;
-    transition: transform 0.3s ease;
+.nav-links { 
+    display: flex; 
+    list-style: none; 
+    gap: 4px; /* 極窄間距 */
+    align-items: center; 
 }
 
-.faq-answer {
-    padding: 0 25px;
-    max-height: 0;
-    overflow: hidden;
-    background: #fdfdfd;
-    transition: all 0.3s ease-in-out;
+.nav-links a {
+    text-decoration: none;
+    color: var(--primary);
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: var(--transition);
+    font-size: 0.9rem; /* 關鍵：縮小字體 */
+    white-space: nowrap;
 }
 
-.faq-answer p {
-    padding: 15px 0;
-    color: #666;
-    line-height: 1.6;
-    margin: 0;
+.nav-links a:hover {
+    background: rgba(26, 60, 90, 0.05);
+    color: var(--accent);
 }
 
-/* 啟動狀態 */
-.faq-item.active .faq-answer {
-    max-height: 500px; /* 給予足夠高度 */
-    padding-bottom: 10px;
+/* 強調最新優惠 */
+.nav-links a.promo-btn {
+    color: var(--gold);
+    border: 1.5px solid var(--gold);
+    font-weight: 700;
+    margin-right: 5px;
+}
+.nav-links a.promo-btn:hover {
+    background: var(--gold);
+    color: white;
 }
 
-.faq-item.active .faq-question {
-    color: #007bff;
+/* --- Hero Section (首頁大圖) --- */
+.hero-section {
+    height: 75vh;
+    background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), 
+                url('https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1200&q=80') center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
 }
 
-.faq-item.active .faq-question i {
-    transform: rotate(180deg);
+.hero-content h1 { font-size: 3.2rem; margin-bottom: 15px; letter-spacing: 2px; }
+
+/* 訂車列 (Booking Bar) */
+.booking-bar {
+    background: white;
+    padding: 25px 35px;
+    border-radius: var(--radius);
+    display: flex;
+    gap: 20px;
+    align-items: flex-end;
+    box-shadow: var(--shadow-lg);
+    margin-top: 30px;
+    color: #333;
 }
+
+.input-group { flex: 1; display: flex; flex-direction: column; text-align: left; }
+.input-group label { font-size: 0.8rem; font-weight: bold; margin-bottom: 8px; color: #777; }
+.input-group select, .input-group input {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    font-size: 0.95rem;
+}
+
+.search-btn {
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 14px 35px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: var(--transition);
+}
+.search-btn:hover { background: #b71c1c; transform: translateY(-2px); }
+
+/* --- Footer 優化 --- */
+footer {
+    background: var(--primary);
+    color: white;
+    padding: 70px 30px 30px;
+    margin-top: 80px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+}
+
+.footer-info h3 { color: var(--gold); margin-bottom: 20px; }
+.footer-links a { color: rgba(255,255,255,0.7); text-decoration: none; display: block; margin-bottom: 10px; }
+.footer-links a:hover { color: var(--gold); }
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    font-size: 0.85rem;
+    opacity: 0.6;
+}
+
+/* --- 手機版漢堡選單樣式 --- */
+@media (max-width: 1150px) {
+    .nav-links { display: none; } /* 寬度不足時隱藏 */
+    .menu-toggle { display: block; font-size: 1.5rem; color: var(--primary); cursor: pointer; }
+}
+
