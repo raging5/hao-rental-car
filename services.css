@@ -1,0 +1,80 @@
+.container {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.page-title {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+/* 服務卡片樣式 */
+.service-box {
+    display: flex;
+    background: #fff;
+    padding: 30px;
+    border-radius: 20px;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.service-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,123,255,0.1);
+    border-color: #007bff;
+}
+
+.service-icon {
+    font-size: 2.5rem;
+    color: #007bff;
+    margin-right: 25px;
+    display: flex;
+    align-items: center;
+}
+
+.service-content h3 {
+    font-size: 1.4rem;
+    margin-bottom: 12px;
+    color: #333;
+}
+
+.service-content p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.learn-more {
+    color: #007bff;
+    font-weight: bold;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.tag {
+    background: #e9ecef;
+    padding: 4px 12px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    color: #495057;
+}
+
+.no-link { cursor: default; }
+.no-link:hover { border-color: transparent; transform: none; }
+
+@media (max-width: 768px) {
+    .service-box { flex-direction: column; text-align: center; }
+    .service-icon { margin-right: 0; margin-bottom: 20px; justify-content: center; }
+}

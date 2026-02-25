@@ -1,0 +1,110 @@
+/* --- 基礎佈局 --- */
+.container {
+    max-width: 1100px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.page-title {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+/* --- 優惠卡片優化 --- */
+.promo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+}
+
+.promo-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    position: relative;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid #f0f0f0;
+}
+
+.promo-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.promo-img {
+    height: 220px;
+    overflow: hidden;
+}
+
+.promo-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.promo-card:hover .promo-img img {
+    transform: scale(1.1);
+}
+
+/* 優惠標籤 (靜態即可，不閃爍更專業) */
+.promo-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: #ff4d4d;
+    color: white;
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    z-index: 5;
+}
+
+.promo-content {
+    padding: 30px;
+}
+
+.date-tag {
+    font-size: 0.85rem;
+    color: #007bff; /* 改用藍色強調時間 */
+    margin-bottom: 12px;
+    font-weight: 500;
+}
+
+.promo-content h3 {
+    font-size: 1.5rem;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.promo-content p {
+    color: #666;
+    line-height: 1.7;
+    margin-bottom: 25px;
+    height: 85px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* 按鈕美化 */
+.promo-link {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    background: #2c3e50;
+    color: white;
+    padding: 14px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.promo-link:hover {
+    background: #007bff;
+    letter-spacing: 1px;
+}

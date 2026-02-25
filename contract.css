@@ -1,0 +1,87 @@
+.container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.contract-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    margin-bottom: 20px;
+}
+
+.con-tab {
+    padding: 15px 40px;
+    border: 1px solid #ddd;
+    background: #f8f9fa;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.con-tab.active {
+    background: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+/* 契約內容框 */
+.contract-content {
+    display: none;
+}
+
+.contract-content.active {
+    display: block;
+}
+
+.contract-scroll-box {
+    background: white;
+    padding: 40px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    height: 600px; /* 固定高度 */
+    overflow-y: auto; /* 超過高度顯示滾動條 */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.contract-scroll-box h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #2c3e50;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+}
+
+.article {
+    margin-bottom: 30px;
+}
+
+.article span {
+    display: block;
+    font-weight: bold;
+    color: #007bff;
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+}
+
+.article p {
+    line-height: 1.8;
+    color: #444;
+    text-align: justify;
+}
+
+/* 自定義滾動條外觀 */
+.contract-scroll-box::-webkit-scrollbar {
+    width: 8px;
+}
+.contract-scroll-box::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+.contract-scroll-box::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+}
+.contract-scroll-box::-webkit-scrollbar-thumb:hover {
+    background: #007bff;
+}
